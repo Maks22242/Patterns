@@ -1,31 +1,31 @@
 
 require 'prime'
 
-def lb1(arr)
+def size_after_max(arr)
 
 	kol = arr.reverse.index(arr.max)
 end
 
-def lb2(arr)
+def befor_min_in_end(arr)
 
 	new_arr =arr[arr.index(arr.min)..arr.length-1]+ arr[0..arr.index(arr.min)-1]
 
 end
 
-def lb3(arr)
+def max_in_bount(arr)
 	
 	a = 3
 	b = 6
 	arr[a+1..b].max
 end
 
-def lb4(arr)
+def index_el_less_left(arr)
 	arr = [12,11,32,3,11,12,11,34,12]
 	el = (1...arr.size).select{ |x| arr[x] < arr[x-1]}
 	return el, el.length
 end
 	
-def lb5(arr)
+def prime_el_div(arr)
 	
 	divisors = []
 
@@ -50,20 +50,20 @@ def  less()
 	arr_int = get_arr()
 	puts "Полученный массив:", arr_int
 	if(ARGV[0] == "1")
-		puts "количество элементов, расположенных после последнего максимального. ", lb1(arr_int)
+		puts "количество элементов, расположенных после последнего максимального. ", size_after_max(arr_int)
 	end
 	if(ARGV[0] == "2")
-		puts "элементы, расположенные до минимального, в конце массива.",lb2(arr_int)
+		puts "элементы, расположенные до минимального, в конце массива.",befor_min_in_end(arr_int)
 	end
 	if(ARGV[0] == "3")	
-		puts "максимальный из элементов в этом интервале.",lb3(arr_int)
+		puts "максимальный из элементов в этом интервале.",max_in_bount(arr_int)
 	end
 	if(ARGV[0] == "4")
-		puts "индексы элементов, которые меньше своего левого соседа, и количество таких чисел.",lb4(arr_int)
+		puts "индексы элементов, которые меньше своего левого соседа, и количество таких чисел.",index_el_less_left(arr_int)
 	end
 	if(ARGV[0] == "5")
 		puts "список всех положительных простых делителей элементов списка без повторений.
-",lb5(arr_int)
+",prime_el_div(arr_int)
 	end
 
 end
