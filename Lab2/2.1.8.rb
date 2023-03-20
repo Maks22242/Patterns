@@ -2,6 +2,8 @@ class Student
 	attr_reader :id, :name, :lastName, :midleName, :phone, :tme, :mail, :git
 	
 	def initialize(lastName: ,name: ,midleName:, id: nil, phone: nil, mail: nil, git: nil)
+	
+		raise ArgumentError, "Один из обязательных параметров задан неврно" unless name && lastName && midleName
 		
 		if phone != nil then
 			validate_phone(phone)
