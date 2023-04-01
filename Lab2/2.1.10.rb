@@ -37,7 +37,7 @@ class Student
 		true
 	end
 	
-	def set_contacts (phone:, tme:, mail:)
+	def set_contacts (phone: nil, tme:nil  mail:nil)
 		self.mail = mail if(mail!=nil)
 		self.tme = tme if(tme!=nil)
 		self.phone = phone if(phone!=nil)
