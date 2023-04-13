@@ -35,6 +35,33 @@ class Student
     hash_info
   end
 
+  #возвращает Фамилия и Инициалы;
+  def short_name
+    "#{lastName} #{name[0]}. #{midleName[0]}."
+  end
+
+  # Проверяет наличие контактов
+  def exist_contact?
+    !(tme.nil? && mail.nil? && phone.nil?)
+  end
+  # Возвращает любой контакт (при его наличии)
+  def find_contact
+    if exist_contact?
+      return "phone: #{phone}" unless phone.nil?
+      return "telegram: #{tme}" unless tme.nil?
+      return "mail: #{mail}" unless mail.nil?
+    end
+    nil
+  end
+
+  # возвращает краткую информацию о студенете
+  def get_info
+    git_info = "#git: #{git}" unless git.nil?
+    contact_info = "#{find_contact}" unless find_contact.nil?
+    "#{short_name} #{git_info} #{contact_info}"
+  end
+
+
   def to_s
     "id: #{@id}, lastname: #{@lastName}, Name: #{@name}, midlename: #{@midleName}, phone: #{@phone}, @tme #{@tme}, mail #{@mail}, git: #{@git}\n"
   end
