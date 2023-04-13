@@ -18,4 +18,10 @@ class Student_short
   def to_s
     "id: #{@id}, short_name: #{@short_name}, contact: #{@contact}, git: #{@git}\n"
   end
+  
+    def get_info
+    git_info = "#git: #{git}" unless git.nil
+    "#{short_name} git:#{git_info} contact:#{contact}"
+  end
+  
 end
