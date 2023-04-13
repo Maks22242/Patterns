@@ -1,0 +1,21 @@
+class Student_short
+  attr_accessor :id, :short_name, :git, :contact
+
+  def initialize(student)
+    @id = student.id
+    @short_name = student.short_name
+    @git = student.git
+    @contact = student.set_contacts(phone: student.phone, mail: student.mail, tme: student.tme)
+  end
+
+  def self.initz_from_str(id,str)
+    student = stud2 = Student.iniz(str)
+    student.id = id
+    Student_short.new(student)
+
+  end
+
+  def to_s
+    "id: #{@id}, short_name: #{@short_name}, contact: #{@contact}, git: #{@git}\n"
+  end
+end
