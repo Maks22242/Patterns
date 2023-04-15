@@ -1,5 +1,7 @@
-class Student_short
-  attr_accessor :id, :short_name, :git, :contact
+require_relative 'Student_super'
+
+class Student_short < Student_super
+  attr_accessor :short_name, :contact
 
   def initialize(student)
     @id = student.id
@@ -18,10 +20,9 @@ class Student_short
   def to_s
     "id: #{@id}, short_name: #{@short_name}, contact: #{@contact}, git: #{@git}\n"
   end
-  
-    def get_info
+
+  def get_info
     git_info = "#git: #{git}" unless git.nil
     "#{short_name} git:#{git_info} contact:#{contact}"
   end
-  
 end
