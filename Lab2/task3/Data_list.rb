@@ -3,7 +3,7 @@ require_relative 'Data_table'
 class Data_list
 
   # private_class_method :new
-
+  
   attr_writer :list
 
   def initialize(list)
@@ -43,8 +43,10 @@ class Data_list
   def get_names
   end
 
-  attr_accessor :list
-  attr_writer :length
+  def table_fields(object)
+    []
+  end
+
 
   private
 
