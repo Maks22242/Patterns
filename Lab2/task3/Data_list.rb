@@ -1,10 +1,8 @@
-require_relative 'Data_table'
-
 class Data_list
 
-  # private_class_method :new
-  
-  attr_writer :list
+  private_class_method :new
+  attr_reader :list
+
 
   def initialize(list)
     self.list = list
@@ -25,34 +23,20 @@ class Data_list
     end
     selected_id_list
   end
-
+  #Этот метод будтет реализован в наследнике
   def get_data
-    result = []
-    ind = 0
-    list.each do |obj|
-      row = []
-      row << ind
-      # * необходима так как, если нам передадут [1,2,3], то передастся row.push(1,2,3)
-      row.push(*table_fields(obj))
-      result << row
-      ind += 1
-    end
-    DataTable.new(result)
   end
-
+  #Этот метод будтет реализован в наследнике
   def get_names
   end
-
-  def table_fields(object)
-    []
+  def table_fields
   end
-
 
   private
 
+
+
   attr_accessor :select_items
   attr_writer :list
-
 end
 
-list = Data_list.new([1,2,3,4,5,6,8])
