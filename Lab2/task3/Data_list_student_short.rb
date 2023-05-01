@@ -1,4 +1,5 @@
 require_relative 'Data_list'
+require_relative 'Data_table'
 require_relative 'Students/Student_short'
 
 class Data_list_student_short < Data_list
@@ -9,7 +10,7 @@ class Data_list_student_short < Data_list
     ["short_names","git","contact"]
   end
 
-  def get_data
+  def get_date
     result = []
     id = 0
     list.each do |obj|
@@ -19,14 +20,12 @@ class Data_list_student_short < Data_list
       result << row
       id += 1
     end
-    DataTable.new(result)
+    Data_table.new(result)
   end
 
   protected
 
-  # применение паттерна Шаблон
 
-  # сеттер для массива объектов
   def table_fields(object)
     [object.short_name, object.git, object.contact]
   end
