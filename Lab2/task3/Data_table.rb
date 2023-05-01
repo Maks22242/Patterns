@@ -1,5 +1,7 @@
 class Data_table
 
+  attr_reader :row_number, :column_number
+
   def initialize(table)
     @table = table
     @row_number = table.size
@@ -8,7 +10,7 @@ class Data_table
 
   #получить элемент по номеру столбца и строки
   def get_item(row,col)
-    return nil if row>=row_number||col>=column_number
+    return nil if row>=@row_number||col>=@column_number
     table[row][col].dup
   end
 
